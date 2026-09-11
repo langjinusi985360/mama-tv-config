@@ -35,8 +35,8 @@ https://cdn.jsdelivr.net/gh/langjinusi985360/mama-tv-config@main/tvbox.json
 
 原默认源把推荐内容优先导向夸克/115 网盘线路，未登录网盘 Cookie 时会出现“115 Cookie 未配置或已失效”“还没有配置夸克 Cookie”。为妈妈端默认体验，`tvbox.json` 已改为：
 
-1. 前排加入 6 个不依赖网盘登录的采集直连源，默认首页为 `暴风资源`。
-2. 依次保留 `360资源`、`ikun资源`、`无尽资源`、`魔都资源`、`采集丨影视` 作为备用。
+1. 前排加入 4 个不依赖网盘登录、并已验证实际视频地址可请求的采集直连源，默认首页为 `暴风资源`。
+2. 依次保留 `360资源`、`ikun资源`、`魔都资源` 作为备用。
 3. 原 98 个扩展站点完整保留，但整体后移；夸克/115/Emby/AList 等网盘或自建服务不再作为默认入口。
 
 ### 来源与复核方法
@@ -44,5 +44,5 @@ https://cdn.jsdelivr.net/gh/langjinusi985360/mama-tv-config@main/tvbox.json
 - 主参考仓库：[`tushen6/Tomorrow`](https://github.com/tushen6/Tomorrow)（2026-09-11 复核为 2,269 stars，2026-09-09 仍有推送），采用其 `caiji.json` 中的 CMS 直连接口。
 - 辅助参考：[`qist/tvbox`](https://github.com/qist/tvbox)、[`noimank/tvbox`](https://github.com/noimank/tvbox) 和 [`cluntop/tvbox`](https://github.com/cluntop/tvbox)，用于交叉确认采集接口的活跃度和结构。
 - 2026-09-11 实测：使用 App 相同的 `wd` 搜索和 `ac=detail` 详情参数，以“兰香如故”“剑来第二季”为样本；保留的直连源均能返回详情，并解析到可请求的 `.m3u8` 地址。
-- `1080资源` 与 `神马云` 虽然搜索和详情正常，但其视频 CDN 在当前网络直接请求返回 403，因此已从默认前排移除，避免妈妈点开后失败。
+- `1080资源`、`神马云`、`无尽资源` 虽然搜索和详情正常，但其视频 CDN 在当前网络直接请求返回 403；`采集丨影视` 的 HTTPS 证书主机名不匹配。以上 4 项均已从默认前排移除，避免妈妈点开后失败。
 - 网盘源仍可手动选择；若要使用，需要先在“配置中心/我的网盘”完成对应网盘登录。该操作不应作为妈妈端默认流程。
